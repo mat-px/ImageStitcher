@@ -4,7 +4,7 @@ Algorithms related to stitching images.
 
 import os
 import argparse
-from typing import List, Tuple
+from typing import List
 import numpy.typing as npt
 import numpy as np
 import cv2
@@ -16,28 +16,10 @@ class Stitcher:
     ----------
     image_path: str
         Folder path for images needed to be stitched
-    center_image: npt.NDArray[np.uint8]
-        Image that should be the center of the competition area
-    target_pixel: tuple
-        Pixel location of desired center coordinate of final stitched image
     """
 
     def __init__(self) -> None:
         self.image_path: str = ""
-
-        self.center_image: npt.NDArray[np.uint8] = np.array([])
-
-        self.target_cord: Tuple = ()
-
-        self.rot_deg: List = []
-
-        self.alt: float = None
-
-        self.image_shape: Tuple = ()
-
-        self.target_height: int = None
-
-        self.drone_cords: List = []
 
     def multiple_image_stitch(self) -> npt.NDArray[np.uint8]:
         """
